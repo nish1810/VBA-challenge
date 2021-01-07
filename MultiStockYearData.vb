@@ -69,14 +69,13 @@ Sub Stock_Market_Analysis()
             YearlyChange = Close_Price - Open_Price
             ws.Range("J" & SummaryTableRow).Value = YearlyChange
                 
-            'Change format of Column J to Accounting with "$"
             ws.Range("J" & SummaryTableRow).NumberFormat = "$0.00"
 
-            'Determine Percent Change, if Yearly Open Price is 0, then Percent Change is 0
+            'Determine Percent Change
             If Open_Price = 0 Then
                 Percent_Change = 0
                     
-                'Otherwise, set Percent Change to Yearly Change divided by Yearly Open Price
+                'Otherwise, set Percent Change to YearlyChange divided by Yearly Open Price
                 Else
                 YearlyOpen = ws.Range("C" & PreviousAmount)
                 Percent_Change = YearlyChange / Open_Price
@@ -102,7 +101,7 @@ Sub Stock_Market_Analysis()
             'Update Summary Table Row
             SummaryTableRow = SummaryTableRow + 1
               
-            Previous Amount
+            'Previous Amount
             PreviousAmount = i + 1
                 
         End If
